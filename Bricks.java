@@ -1,5 +1,7 @@
 package com.lwenzel.BreakOut;
-
+// Class for bricks that are loaded at the top of the screen
+// Each brick is given a position and a box to account for hit 
+// detection with the ball
 
 public class Bricks {
     private Box[][] bricklist;

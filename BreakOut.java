@@ -223,9 +223,9 @@ public class BreakOut {
         boolean blockHit = false;
         for (int i = 0; i < brick.getRow(); i++) {
             for(int j = 0 ; j < brick.getCol(); j++) {
-
+                // if the ball hits a certian side of a brick then it will change direction accordingly 
                if (brick.getBox(i, j).exists() && brick.getBox(i, j).getRectangle().intersects(ball.getRectangle())) {
-                    /*  int temp, type = 1;
+                    int temp, type = 1;
                     int area = 0;
                     temp = brick.getBox(i, j).getBottomRectangle().intersection(ball.getRectangle()).height * brick.getBox(i, j).getBottomRectangle().intersection(ball.getRectangle()).width;
                     if (temp > area) {
@@ -280,7 +280,7 @@ public class BreakOut {
                     }
 
                     break;
-                   */
+                   
                    score += 10;
                    if(ball.getRectangle().intersects(brick.getBox(i, j).getBottomRectangle())
                           && !ball.getRectangle().intersects(brick.getBox(i, j).getLeftRectangle())

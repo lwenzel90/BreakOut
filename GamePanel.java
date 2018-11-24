@@ -47,6 +47,7 @@ public class GamePanel extends JPanel {
         for (int i = 0; i < bricks.getRow(); i++) {
             for(int j = 0 ; j < bricks.getCol(); j++) {
                 if (bricks.getBox(i, j).exists()) {
+                    // Gets the row of balls being added and then sets a color for a rainbow effect 
                     bricklist[i][j].setRect(bricks.getBox(i, j).getX(), bricks.getBox(i, j).getY(), bricks.getBox(i, j).getWidth(), bricks.getBox(i, j).getHeight()); // Set rectangle to "ball" bounds
                     if(i == 0){
                         g2.setColor(new Color(255, 29, 0, 255)); // Set color
@@ -119,7 +120,7 @@ public class GamePanel extends JPanel {
             g2.drawString("Score: " + main.getScore() + "/ " + (main.getRow() * main.getCol() * 10), main.getWindowWidth() - 150, main.getWindowHeight() - 50);
         }
 
-        //brick.get
+        
         // End
         g.drawImage(buffer, 0, 0, getWidth(), getHeight(), this);
         g2.dispose();
