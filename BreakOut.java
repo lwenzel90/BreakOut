@@ -225,63 +225,9 @@ public class BreakOut {
             for(int j = 0 ; j < brick.getCol(); j++) {
                 // if the ball hits a certian side of a brick then it will change direction accordingly 
                if (brick.getBox(i, j).exists() && brick.getBox(i, j).getRectangle().intersects(ball.getRectangle())) {
-                    int temp, type = 1;
-                    int area = 0;
-                    temp = brick.getBox(i, j).getBottomRectangle().intersection(ball.getRectangle()).height * brick.getBox(i, j).getBottomRectangle().intersection(ball.getRectangle()).width;
-                    if (temp > area) {
-                        area = temp;
-                    }
-                    temp = brick.getBox(i, j).getTopRectangle().intersection(ball.getRectangle()).height * brick.getBox(i, j).getTopRectangle().intersection(ball.getRectangle()).width;
-                    if (temp > area) {
-                        area = temp;
-                        type = 2;
-                    }
-                    temp = brick.getBox(i, j).getLeftRectangle().intersection(ball.getRectangle()).height * brick.getBox(i, j).getLeftRectangle().intersection(ball.getRectangle()).width;
-                    if (temp > area) {
-                        area = temp;
-                        type = 3;
-                    }
-                    temp = brick.getBox(i, j).getRightRectangle().intersection(ball.getRectangle()).height * brick.getBox(i, j).getRightRectangle().intersection(ball.getRectangle()).width;
-                    if (temp > area) {
-                        area = temp;
-                        type = 4;
-                    }
-                    switch (type) {
-                        case 1:
-                            ball.setYvel(ball.getYvel() * -1);
-                            brick.getBox(i, j).setExists(false);
-                            playSound(clip);
-                            System.out.println("bottom");
-                            break;
-                        case 2:
-                            ball.setYvel(ball.getYvel() * -1);
-                            brick.getBox(i, j).setExists(false);
-                            playSound(clip);
-                            System.out.println("top");
-                            break;
-                        case 3:
-                            ball.setXvel(ball.getXvel() * -1);
-                            brick.getBox(i, j).setExists(false);
-                            playSound(clip);
-                            System.out.println("left");
-                            break;
-                        case 4:
-                            ball.setXvel(ball.getXvel() * -1);
-                            brick.getBox(i, j).setExists(false);
-                            playSound(clip);
-                            System.out.println("right");
-                            break;
-                    }
-                    blockHit = true;
-                    if(wincheck()){
-                        paused = true;
-                        JOptionPane.showMessageDialog(null, "You win!", "Breakout Boii", JOptionPane.INFORMATION_MESSAGE);
-                        System.exit(0);
-                    }
-
-                    break;
-                   
                    score += 10;
+                   // each if statment shows the hit detection for each side. The format 
+                   // is brick.getbox(x, y).getDIRECTION 
                    if(ball.getRectangle().intersects(brick.getBox(i, j).getBottomRectangle())
                           && !ball.getRectangle().intersects(brick.getBox(i, j).getLeftRectangle())
                           && !ball.getRectangle().intersects(brick.getBox(i, j).getRightRectangle())){
@@ -326,6 +272,7 @@ public class BreakOut {
                        ball.setXvel(Math.abs(ball.getXvel()));
                        ball.setYvel(Math.abs(ball.getYvel()) * -1);
                    }
+                   
                    brick.getBox(i, j).setExists(false);
                    playSound(clip);
                    System.out.println("a thing");
