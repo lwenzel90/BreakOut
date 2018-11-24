@@ -39,17 +39,17 @@ public class Bricks {
     }
 
     private void setPos(){
-        int x = 7;
+        int x = 20;
         int y = 70;
 
         for (int i = 0; i < row; i++) {
             for(int j = 0 ; j < col; j++) {
                 bricklist[i][j].setX(x);
                 bricklist[i][j].setY(y);
-                x += bricklist[0][0].getWidth() + 4;
+                x += bricklist[0][0].getWidth() + 1;
             }
-            x = 7;
-            y += bricklist[0][0].getHeight() + 5;
+            x = 20;
+            y += bricklist[0][0].getHeight() + 1;
         }
     }
 

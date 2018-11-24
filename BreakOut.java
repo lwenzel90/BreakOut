@@ -53,7 +53,7 @@ public class BreakOut {
 
     //  Variables
     private int score = 0;
-    private int row = 5;
+    private int row = 3  ;
     private int col = 10;
 
     // getters and setters
@@ -68,7 +68,7 @@ public class BreakOut {
     }
 
     // Objects
-    protected Box paddle = new Box(this, 70, 8);
+    protected Box paddle = new Box(this, 800, 8);
     protected Ball ball = new Ball(this, 10, 10);
     protected Bricks brick = new Bricks(this, row, col);
 
@@ -332,6 +332,7 @@ public class BreakOut {
                    blockHit = true;
                    if(wincheck()){
                        paused = true;
+                       score += 10;
                        JOptionPane.showMessageDialog(null, "You win!", "Breakout Boii", JOptionPane.INFORMATION_MESSAGE);
                        System.exit(0);
                    }
